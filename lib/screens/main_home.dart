@@ -38,83 +38,30 @@ class _MainHomeState extends State<MainHome> {
             Utils.size(context).width > 1300
             ? spaceXXL : (
                 Utils.isMobileView(context)
-                ? spaceM : spaceXL)
+                ? (spaceS-2) : spaceXL)
         ),
-        child: Row(
+        child: Utils.isMobileView(context) ? ListView(
+          children: [
+            MainHeader(),
+            MainNavigation(),
+            MainBody()
+          ],
+        ) : Row(
           children: [
             MainSIde(),
             Expanded(
-              child: Padding(
-                padding: EdgeInsets.all(spaceL),
-                child: Column(
-                  children: [
-                    MainHeader(),
-                    Expanded(
-                      child: PdfView(
-                        documentLoader: Center(child: CircularProgressIndicator()),
-                        pageLoader: Center(child: CircularProgressIndicator()),
-                        controller: _pdfController,
-                      ),
-                    ),
-                    GridView.count(
-                      shrinkWrap: true,
-                      crossAxisCount: 3,
-                      childAspectRatio: 3.5,
+              child: Column(
+                children: [
+                  MainHeader(),
+                  MainNavigation(),
+                  Expanded(
+                    child: ListView(
                       children: [
-                        IconButton(
-                          icon: Icon(FontAwesomeIcons.arrowLeft),
-                          onPressed: () {
-                            _pdfController.previousPage(
-                              curve: Curves.ease,
-                              duration: Duration(milliseconds: 100),
-                            );
-                          },
-                          tooltip: "Previous",
-                        ),
-                        IconButton(
-                          tooltip: 'Download CV',
-                          icon: Icon(FontAwesomeIcons.download),
-                          onPressed: () {
-                            Utils.intentOpenUrl(link: "https://drive.google.com/file/d/1f0DVjWluuAa_u-wN83VSJ1QWPZnRTCUR/view?usp=sharing");
-                          },
-                        ),
-                        IconButton(
-                          icon: Icon(FontAwesomeIcons.arrowRight),
-                          onPressed: () {
-                            _pdfController.nextPage(
-                              curve: Curves.ease,
-                              duration: Duration(milliseconds: 100),
-                            );
-                          },
-                          tooltip: "Next",
-                        ),
+                        MainBody()
                       ],
-                    )
-                    // Text(saya).tr(),
-                    // SizedBox(height: spaceM),
-                    // ElevatedButton(
-                    //     onPressed: () {
-                    //       if (context.locale == Locale('id', 'ID')) {
-                    //         context.setLocale(Locale('en', 'US'));
-                    //       } else {
-                    //         context.setLocale(Locale('id', 'ID'));
-                    //       }
-                    //     },
-                    //     child: Text(change_lang).tr()
-                    // ),
-                    // SizedBox(height: spaceM),
-                    // ElevatedButton(
-                    //     onPressed: () {
-                    //       if (isDarkMode()) {
-                    //         context.read<XThemeMode>().setThemeMode(ThemeMode.light);
-                    //       } else {
-                    //         context.read<XThemeMode>().setThemeMode(ThemeMode.dark);
-                    //       }
-                    //     },
-                    //     child: Text(change_theme).tr()
-                    // ),
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
           ],

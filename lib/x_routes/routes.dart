@@ -20,6 +20,9 @@ class Routes {
               providers: [
                 BlocProvider(
                   create: (_) => SelectorCubit<bool>(false), // Open/close sidebar more menus
+                ),
+                BlocProvider(
+                  create: (_) => NavigationCubit(), // Open/close sidebar more menus
                 )
               ],
               child: MainHome(),

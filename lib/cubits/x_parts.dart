@@ -8,3 +8,5 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'xtheme_mode.dart';
 part 'selector_cubit.dart';
+part 'navigation_cubit.dart';
+part 'skill_cubit.dart';

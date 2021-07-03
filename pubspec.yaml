@@ -22,6 +22,8 @@ dependencies:
   url_launcher: ^6.0.6
   font_awesome_flutter: ^9.1.0
   native_pdf_view: ^4.0.1
+  google_maps: ^5.1.0
+  flutter_markdown: ^0.6.2
 
   # Localizations
   easy_localization: ^3.0.0

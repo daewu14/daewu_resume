@@ -220,3 +220,4 @@ const String kode = 'kode';
 const String penyebab = 'penyebab';
 const String keputusan = 'keputusan';
 const String penghambat = 'penghambat';
+const String contact = 'contact';

@@ -216,5 +216,6 @@
   "kode" : "Code",
   "penyebab" : "Cause",
   "keputusan" : "Decision",
-  "penghambat" : "Inhibitor"
+  "penghambat" : "Inhibitor",
+  "contact" : "Contact"
 }
